@@ -1,8 +1,12 @@
+// import LearnButton from "./components/LearnButton"
+import LearnGrid from "./components/LearnGrid"
+
 function App() {
 
   return (
     <>
-      hii
+      {/* <LearnButton/> */}
+      <LearnGrid/>
     </>
   )
 }
