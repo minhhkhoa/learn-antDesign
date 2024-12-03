@@ -1,10 +1,12 @@
 import { Layout } from "antd";
-import LearnGrid from "../../components/LearnGrid";
 import "./LayoutDefault.css";
 import Logo from "../../images/logo.png";
 import LogoFold from "../../images/logo-fold.png";
 import { SearchOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import Notify from "../../components/Notify";
+import MenuSider from "../../components/MenuSider";
+import { Outlet } from "react-router-dom";
 
 const { Sider, Content } = Layout
 
@@ -29,18 +31,18 @@ function LayoutDefault() {
               </div>
             </div>
             <div className="header__nav-right">
-              Noi Dung
+              <Notify />
             </div>
           </div>
         </header>
         <Layout>
           {/* attribute: collapsed: thu mo sider */}
           <Sider collapsed={collapsed} theme="light" className="sider">
-            Sider
+            <MenuSider/>
           </Sider>
 
           <Content className="content">
-            <LearnGrid />
+            <Outlet/>
           </Content>
         </Layout>
       </Layout>

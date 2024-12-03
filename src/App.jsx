@@ -1,14 +1,10 @@
-// import LearnButton from "./components/LearnButton"
-// import LearnGrid from "./components/LearnGrid"
-import LayoutDefault from "./layout/LayoutDefault"
+import AllRoute from "./components/AllRoute";
 
 function App() {
 
   return (
     <>
-      {/* <LearnButton/> */}
-      {/* <LearnGrid /> */}
-      <LayoutDefault />
+      <AllRoute />
     </>
   )
 }
