@@ -1,5 +1,5 @@
 import { Menu } from "antd";
-import { PieChartOutlined, HomeOutlined, LineChartOutlined, RadarChartOutlined } from "@ant-design/icons";
+import { PieChartOutlined, SketchOutlined, HomeOutlined, LineChartOutlined, RadarChartOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 function MenuSider() {
@@ -49,6 +49,11 @@ function MenuSider() {
       label: <Link to="/book-room">Book Room</Link>,
       icon: <HomeOutlined />,
       key: "/book-room",
+    },
+    {
+      label: <Link to="/create-room">Create Room</Link>,
+      icon: <SketchOutlined />,
+      key: "/create-room",
     }
   ]
   return (
