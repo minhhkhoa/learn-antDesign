@@ -1,7 +1,10 @@
 import { Form, Input, Button, InputNumber, Switch, Select } from "antd";
+import { createRoom } from "../../services/roomsService";
 const { Option } = Select;
 
 function CreateRoom() {
+
+  const [form] = Form.useForm();
   const rules = [
     {
       required: true,
@@ -9,14 +12,19 @@ function CreateRoom() {
     },
   ]
 
-  const handleSubmit = (values) => {
-    console.log(values); //- nó sẽ có hết tất cả dữ liệu là key:value của các thẻ
+  const handleSubmit = async (values) => {
+    //console.log(values); //- nó sẽ có hết tất cả dữ liệu là key:value của các thẻ
+    const response = await createRoom(values);
+    console.log(response);
+    if(response){
+      form.resetFields();
+    }
   }
   return (
     <>
       <h2>Thêm phòng mới</h2>
       {/* nó có sk tự định nghĩa khi form dc gửi đi là onFinish */}
-      <Form name="create-room" layout="vertical" onFinish={handleSubmit}>
+      <Form form={form} name="create-room" layout="vertical" onFinish={handleSubmit}>
         <Form.Item
           label="Tên phòng"
           name="name"
@@ -45,7 +53,7 @@ function CreateRoom() {
           label="Mô tả"
           name="description"
         >
-          <Input.TextArea showCount maxLength={100}/>
+          <Input.TextArea showCount maxLength={100} />
         </Form.Item>
 
         <Form.Item
@@ -64,12 +72,12 @@ function CreateRoom() {
           </Select>
         </Form.Item>
 
-        <Form.Item 
-          name="status" 
+        <Form.Item
+          name="status"
           label="Trạng thái"
-          >
-            {/* ko ấn thì giá trị là false còn có ấn thì là true */}
-          <Switch/>
+        >
+          {/* ko ấn thì giá trị là false còn có ấn thì là true */}
+          <Switch />
         </Form.Item>
 
         <Form.Item>
