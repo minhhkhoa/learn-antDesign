@@ -15,7 +15,6 @@ function CreateRoom() {
   const handleSubmit = async (values) => {
     //console.log(values); //- nó sẽ có hết tất cả dữ liệu là key:value của các thẻ
     const response = await createRoom(values);
-    console.log(response);
     if(response){
       form.resetFields();
     }
@@ -73,11 +72,20 @@ function CreateRoom() {
         </Form.Item>
 
         <Form.Item
+          valuePropName="checked"
           name="status"
           label="Trạng thái"
         >
           {/* ko ấn thì giá trị là false còn có ấn thì là true */}
-          <Switch />
+          <Switch checkedChildren="Còn phòng" unCheckedChildren="Hết phòng" />
+        </Form.Item>
+
+        <Form.Item
+          valuePropName="checked"
+          name="typeRoom"
+          label="Loại phòng"
+        >
+          <Switch checkedChildren="VIP" unCheckedChildren="Normal"/>
         </Form.Item>
 
         <Form.Item>

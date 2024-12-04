@@ -1,4 +1,4 @@
-import { Button, Dropdown } from "antd";
+import { Badge, Button, Dropdown } from "antd";
 import { BellOutlined } from "@ant-design/icons";
 import "./Notify.css";
 
@@ -7,7 +7,7 @@ function Notify() {
     {
       label: <div className="notify_item">
         <div className="notify_item-icon">
-          <BellOutlined/>
+          <BellOutlined />
         </div>
         <div className="notify_item-content">
           <div className="notify_item-title">
@@ -100,7 +100,7 @@ function Notify() {
       </div>,
       key: '6',
     }
-    
+
   ];
   return (
     <>
@@ -129,7 +129,9 @@ function Notify() {
           </>
         )}
       >
-        <Button type="text" icon={<BellOutlined />}></Button>
+        <Badge dot={true}>
+          <Button type="text" icon={<BellOutlined />}></Button>
+        </Badge>
       </Dropdown>
     </>
   )

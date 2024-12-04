@@ -2,6 +2,7 @@ import LayoutDefault from '../layout/LayoutDefault'
 import BookRoom from '../pages/BookRoom'
 import CreateRoom from '../pages/CreateRoom'
 import DashBoard from '../pages/DashBoard'
+import ListRoom from '../pages/ListRoom'
 
 //-obj route
 export const routes = [
@@ -20,6 +21,10 @@ export const routes = [
       {
         path: "create-room",
         element: <CreateRoom />
+      },
+      {
+        path: "list-room",
+        element: <ListRoom />
       },
     ]
   }
