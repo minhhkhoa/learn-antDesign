@@ -1,8 +1,11 @@
-import { Form, Input, Button, InputNumber, Switch, Select } from "antd";
+import { Form, Input, Button, InputNumber, Switch, Select, message } from "antd";
 import { createRoom } from "../../services/roomsService";
 const { Option } = Select;
 
 function CreateRoom() {
+
+  //-use massage antd
+  const [messageApi, contextHolder] = message.useMessage();
 
   const [form] = Form.useForm();
   const rules = [
@@ -17,10 +20,25 @@ function CreateRoom() {
     const response = await createRoom(values);
     if(response){
       form.resetFields();
+
+      //-neu thanh cong
+      messageApi.open({
+        type: 'success',
+        content: 'Tạo phòng thành công',
+        duration: 4 //- thành công thì show thông báo trong 4s
+      });
+    } else{
+      //- that bai
+      messageApi.open({
+        type: 'error',
+        content: 'Tạo phòng thất bại',
+      });
     }
   }
   return (
     <>
+    {/* Nho them tk nay de show len thong bao */}
+      {contextHolder} 
       <h2>Thêm phòng mới</h2>
       {/* nó có sk tự định nghĩa khi form dc gửi đi là onFinish */}
       <Form form={form} name="create-room" layout="vertical" onFinish={handleSubmit}>
