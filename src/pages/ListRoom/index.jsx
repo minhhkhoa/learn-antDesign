@@ -32,8 +32,6 @@ function ListRoom() {
           {/* table */}
           <RoomTable rooms={rooms} />
         </>)}
-
-
     </>
   )
 }

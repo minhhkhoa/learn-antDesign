@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Table, Popconfirm } from "antd";
+import { Table, Popconfirm, Tag, Tooltip } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 function RoomTable(props) {
 
@@ -42,7 +42,19 @@ function RoomTable(props) {
       key: "typeRoom",
       // -cach dung render cx dc hoac chuan hao du lieu nhu ben tren
       render: (_, record) => {
-        return <>{record.typeRoom ? "Vip" : "Normal"}</>;
+        return (
+          <>
+            {
+              record.typeRoom ?
+                <Tooltip title="Vip chuẩn 5 sao">
+                  <Tag Tag color="red">Vip</Tag>
+                </Tooltip> :
+                <Tooltip title="Ở được">
+                  <Tag Tag color="gray">Normal</Tag>
+                </Tooltip>
+            }
+          </>
+        )
       }
     },
     {
@@ -56,7 +68,7 @@ function RoomTable(props) {
       // eslint-disable-next-line no-unused-vars
       render: (_, record) =>
         <Popconfirm title="Sure to delete?" onConfirm={handleDelete}>
-          <DeleteOutlined style={{color: "red", fontSize: "20px", display: "flex", justifyContent: "center"}}/>
+          <DeleteOutlined style={{ color: "red", fontSize: "20px", display: "flex", justifyContent: "center" }} />
         </Popconfirm >
 
     },
@@ -64,7 +76,7 @@ function RoomTable(props) {
 
   return (
     <>
-      <Table rowKey="id" dataSource={rooms} columns={columns} />;
+      <Table rowKey="id" dataSource={rooms} columns={columns} />
     </>
   )
 }
